@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Trails4Health.Models.ViewModels.ViewModelListaGuias>
+
+@{
+    ViewData["Title"] = "Lista Guias";
+    Layout = "_LayoutEstatisticas";
+}
+
+<h2>Lista de Guias</h2>
+
+<table>
+    <tr>
+        <th>
+            GuiaID
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @item.NomeGuia
+            </td>
+        </tr>
+    }
+</table>

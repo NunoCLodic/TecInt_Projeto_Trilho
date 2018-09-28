@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Sobre Nós";
+}
+@*<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>*@
+
+<!-- Informação Introdutória -->
+<div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Trails4Health</div>
+<div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Rua Comercio | 6300 Guarda</div>
+<!-- Nav Bar - Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item px-lg-4">
+                    <a asp-controller="Home" asp-action="Index" class="nav-link text-uppercase text-expanded">
+                        Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item px-lg-4">
+                    <a asp-controller="Trilhos" asp-action="Index" class="nav-link text-uppercase text-expanded">Trilhos</a>
+                </li>
+                <li class="nav-item active px-lg-4">
+                    <a asp-controller="Home" asp-action="About" class="nav-link active text-uppercase text-expanded">Sobre Nós</a>
+                </li>
+                @*<li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="contact.html">Contacto</a>
+                    </li>*@
+                <li class="nav-item  px-lg-4">
+                    <a asp-controller="Account" asp-action="Login" class="nav-link text-uppercase text-expanded">Login</a>
+                </li>
+                @*<li class="nav-item px-lg-4">
+                        <a asp-controller="Account" asp-action="Register" class="nav-link text-uppercase text-expanded">Registar</a>
+                    </li>*@
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="bg-faded p-4 my-4">
+        <h3>Programação para a Internet - Grupo 3</h3>
+        <br />
+        <br />
+        <strong>Alunos:</strong>
+        <br />
+        <br />
+        1008043 Nuno Galinho<br />
+        1011577 Nuno Lima<br />
+        1011936 Ricardo Fernandes<br />
+        <br />
+    </div>
+</div>

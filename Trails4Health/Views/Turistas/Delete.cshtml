@@ -1,0 +1,58 @@
+﻿@model Trails4Health.Models.Turista
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "_LayoutBackoffice";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Turista</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Morada)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Morada)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nif)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nif)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TuristaID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

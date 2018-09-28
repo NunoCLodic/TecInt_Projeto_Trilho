@@ -1,0 +1,4 @@
+dotnet ef migrations add Initial --context ApplicationDbContext
+dotnet ef migrations add Initial --context LoginsApplicationDbContext
+dotnet ef database update --context ApplicationDbContext
+dotnet ef database update --context LoginsApplicationDbContext

@@ -1,0 +1,106 @@
+﻿<!--MVC faz o render da view em função do modelo: Models/Trilho -->
+<!-- Para poder Ligar os elementos HTML ao objecto Model: EX: Models.Trilhos.Nome-->
+@model ViewModelTrilho
+
+
+@{
+    ViewData["Title"] = "Editar Trilho";
+}
+
+@{
+    Layout = "_LayoutBackOffice";
+}
+
+<br />
+<br />
+<br />
+<!-- enctype="multipart/form-data" para  -->
+<form asp-action="Editar" method="post" enctype="multipart/form-data">
+    <div class="panel panel-primary" style="margin-top:2ex">
+        <div class="text-center text-lg text-uppercase my-0 panel-heading" style="margin-bottom:1em">
+            Editar
+            <strong>Trilho</strong>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <input type="hidden" asp-for="@Model.TrilhoID" />
+                <div class="form-group col-lg-4">
+                    <!-- asp-for: atributo tag helper: liga os elementos HTML ao objecto Model:  EX: ViewModelTrilho -->
+                    <!-- para fazer input tenho usar as classes: "class="form-group" + class="form-control" -->
+                    <label asp-for="@Model.TrilhoNome" class="adjust-margin-left">Nome</label>
+                    <input asp-for="@Model.TrilhoNome" class="form-control" />
+                </div>
+                <div class="form-group col-lg-4">
+                    <label asp-for="@Model.TrilhoInicio" class="adjust-margin-left">Inicio</label>
+                    <input asp-for="@Model.TrilhoInicio" class="form-control" />
+                </div>
+                <div class="form-group col-lg-4">
+                    <label asp-for="@Model.TrilhoFim" class="adjust-margin-left">Fim</label>
+                    <input asp-for="@Model.TrilhoFim" class="form-control" />
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group col-lg-4">
+                    <label asp-for="@Model.TrilhoSumario" class="adjust-margin-left">Sumario</label>
+                    <textarea asp-for="@Model.TrilhoSumario" class="form-control" id="exampleTextarea" rows="4"></textarea>
+                </div>
+                <div class="form-group col-lg-4">
+                    <label asp-for="@Model.TrilhoDetalhes" class="adjust-margin-left">Detalhes</label>
+                    <textarea asp-for="@Model.TrilhoDetalhes" class="form-control" id="exampleTextarea" rows="4"></textarea>
+                </div>
+                <div class="form-group col-lg-4">
+                    <label asp-for="@Model.TrilhoDistancia" class="adjust-margin-left">Distancia em Km</label>
+                    <input asp-for="@Model.TrilhoDistancia" class="form-control" />
+                </div>
+
+                <div class="form-group col-lg-4">
+                    <label asp-for="@Model.ImageFile" class="adjust-margin-left">Imagem</label>                    
+                    <input asp-for="@Model.ImageFile" name="ImageFile" class="form-control-file" aria-describedby="fileHelp" />
+                    <input asp-for="@Model.TrilhoFoto" type="hidden" />
+                    @*<small id="fileHelp" class="form-text text-muted">Escolha Imagem para representar Trilho</small>*@
+                   
+                    @if (Model.TrilhoFoto != null)
+                     {
+
+                        var base64 = Convert.ToBase64String(Model.TrilhoFoto);
+                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+                        <span align="center"><img src="@imgSrc" style="width:8.4em; height:4.7em; margin-top:0.5em" /> </span>
+                     }
+                     else
+                     {
+                        <span align="center"><img src="~/images/imageNA.png" style="width:8.4em; height:4.7em ;margin-top:1em" /> </span>
+                     }
+                </div>
+
+            </div>      <!-- viewBag recebe valores do tipo ViewData["DificuldadeID"] em runTime seleccionados da B.D. -->
+            <div class="form-group col-lg-4">
+                <label asp-for="@Model.DificuldadeID" class="adjust-margin-left">Dificuldade</label>
+                <select asp-for="@Model.DificuldadeID" class="form-control" asp-items="ViewBag.DificuldadeID"></select>
+            </div>
+
+            <div class="form-group col-lg-4">
+                <label asp-for="@Model.EstadoID" class="adjust-margin-left">Estado</label>
+                <select asp-for="@Model.EstadoID" class="form-control" asp-items="ViewBag.EstadoID"></select>
+            </div>
+
+            <div class=" form-group col-lg-4" style="margin-top:0.3em">
+                <label asp-for="@Model.TrilhoDesativado" style="margin-left:0.5em"><strong>Desativado</strong></label>
+                <div class="checkbox" style="width:5em; margin-top:0em;">
+                    <input asp-for="@Model.TrilhoDesativado" style="margin-left:0.5em" />
+                </div>
+            </div>
+
+            <div class="form-group col-lg-12" style="margin-top:2em">
+                <button type="submit" value="Adicionar" class="btn btn-primary">Editar</button> |
+                <a asp-action="Index" class="btn btn-danger">Cancelar</a>
+            </div>
+        </div>
+        <!-- to display validation errors to the user -->
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

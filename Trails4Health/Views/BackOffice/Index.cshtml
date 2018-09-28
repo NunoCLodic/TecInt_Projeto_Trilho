@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Back Office";
+}
+
+@{
+    Layout = "_LayoutBackOffice2";
+}
+
+
+<hr class="divider" style="margin-top:10em">
+@*<h2 class="text-center text-lg text-uppercase my-0" style="font-size:5em">
+    Back
+    <strong>Office</strong>
+</h2>*@
+
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <a asp-controller="TrilhoCRUD" asp-action="Index">
+                <img src="~/images/slide-1.jpg" alt="...">
+            </a>
+            <div class="caption">
+                <h5 style="text-align:center">TRILHO <strong>CRUD</strong></h5>
+            </div>
+        </div>
+    </div>
+    @*<div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <a asp-controller="Avaliacao" asp-action="QuestoesAvaliacaoTrilho">
+                    <img src="~/images/slide-2.jpg" alt="...">
+                </a>
+                <div class="caption">
+                    <h5 style="text-align:center">PERGUNTAS <strong>AVALIAÇÃO TRILHO</strong></h5>
+                </div>
+            </div>
+        </div>*@
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <a asp-controller="Questoes" asp-action="Index">
+                <img src="~/images/slide-3.jpg" alt="...">
+            </a>
+            <div class="caption">
+                <h5 style="text-align:center">QUESTÕES <strong>AVALIAÇÃO GUIA</strong></h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <a asp-controller="RespostasAvaliacao" asp-action="Index">
+                <img src="~/images/slide-3.jpg" alt="...">
+            </a>
+            <div class="caption">
+                <h5 style="text-align:center">AVALIAR <strong>GUIA</strong></h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <a asp-controller="TrilhoCRUD" asp-action="ListaTrilhos">
+                <img src="~/images/lagoa.jpg" alt="...">
+            </a>
+            <div class="caption">
+                <h5 style="text-align:center">LISTA <strong>TRILHOS</strong></h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <a asp-controller="RespostasAvaliacao" asp-action="Estatisticas">
+                <img src="~/images/lagoa.jpg" alt="...">
+            </a>
+            <div class="caption">
+                <h5 style="text-align:center">ESTATÍSTICAS <strong>GUIAS</strong></h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <a asp-controller="ReservasGuia" asp-action="Index">
+                <img src="~/images/lagoa.jpg" alt="...">
+            </a>
+            <div class="caption">
+                <h5 style="text-align:center">RESERVAR <strong>GUIA</strong></h5>
+            </div>
+        </div>
+    </div>
+</div>

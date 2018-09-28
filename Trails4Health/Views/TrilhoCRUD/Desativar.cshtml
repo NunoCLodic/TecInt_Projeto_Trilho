@@ -1,0 +1,83 @@
+@model Trilho
+
+@{
+    ViewData["Title"] = "Desativar";
+}
+
+
+@{
+    Layout = "_LayoutBackOffice";
+}
+
+<br />
+<br />
+<hr />
+@*<div class="alert alert-warning" role="alert">*@
+<div class="text-uppercase panel-heading alert alert-warning" role="alert" style="margin-bottom:1em; font-size:large">
+    <h2>Desativar <strong style="margin-left:0.1em"> @Html.DisplayFor(model => model.Nome) ?</strong></h2>
+</div>
+<hr />
+<br />
+<div>
+    <div class="row">
+        <div class="col-lg-4">
+        @if (Model.Foto != null)
+        {
+            var base64 = Convert.ToBase64String(Model.Foto);
+            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            <img class="card-img img-fluid w-100" src="@imgSrc" style="width:23em; height:16em;" alt="">
+        }
+        else
+        {
+            <img class="card-img img-fluid w-100" src="~/images/imageNA.png" style="width:23em; height:16em;" alt="">
+        }
+
+            @*@{
+            var base64 = Convert.ToBase64String(Model.ImagemTrilho);
+            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+        }
+        <img class="img-fluid mb-4 mb-lg-0" src="@imgSrc" alt="" style="width:23em; height:16em">*@
+        </div>
+
+        <div class="col-lg-3" style="margin-left:2em">
+            <dl class="panel-heading">
+                <dt>
+                    Nome
+                </dt>
+                <dd style="margin-bottom:1em">
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+                <dt>
+                    Inicio
+                </dt>
+                <dd style="margin-bottom:1em">
+                    @Html.DisplayFor(model => model.Inicio)
+                </dd>
+                <dt>
+                    Fim
+                </dt>
+                <dd style="margin-bottom:1em">
+                    @Html.DisplayFor(model => model.Fim)
+                </dd>
+
+                <dt>
+                    Distancia
+                </dt>
+                <dd style="margin-bottom:1em">
+                    @Html.DisplayFor(model => model.Distancia) <span>Km</span>
+                </dd>
+
+            </dl>
+        </div>
+
+        <form asp-action="Desativar">
+            <div class="form-actions no-color " style="margin-top:13em">
+                <input type="submit" value="Desativar" class="btn btn-primary" /> |
+                <a asp-action="Index" class="btn btn-danger">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+    <hr />
+
+

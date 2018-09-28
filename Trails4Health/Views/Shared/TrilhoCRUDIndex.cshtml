@@ -1,0 +1,73 @@
+﻿@model Trilho
+<!-- ICONS -->
+<td>
+    <a asp-action="Editar" asp-route-id="@Model.TrilhoID" class="btn btn-primary" style="margin-bottom:0.2em">
+        <em class="glyphicon glyphicon-edit"></em>
+    </a>
+    <a asp-action="Desativar" asp-route-id="@Model.TrilhoID" class="btn btn-danger" style="margin-bottom:0.2em">
+        <em class="glyphicon glyphicon-trash"></em>
+    </a>
+    <a asp-action="Detalhes" asp-route-id="@Model.TrilhoID" class="btn btn-default" style="margin-bottom:0.2em">
+        <em class="glyphicon glyphicon-th-list"></em>
+    </a>
+</td>
+
+<td>@Html.DisplayFor(modelItem => Model.Nome)</td>
+<td>@Html.DisplayFor(modelItem => Model.Inicio)</td>
+<td>@Html.DisplayFor(modelItem => Model.Fim)</td>
+<td>@Html.DisplayFor(modelItem => Model.Distancia) <span>Km</span></td>
+<td>@Html.DisplayFor(modelItem => Model.Dificuldade.Nome)</td>
+
+@if (Model.Foto != null)
+{
+
+    var base64 = Convert.ToBase64String(Model.Foto);
+    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+    <td align="center"><img src="@imgSrc" style="width:5em; height:3.3em;" /> </td>
+}
+else
+{
+
+    <td align="center"><img src="~/images/imageNA.png" style="width:5em; height:3.3em;" /> </td>
+}
+
+@*@{
+        var base64 = Convert.ToBase64String(Model.ImagemTrilho);
+        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+    }
+    <td align="center"><img src=" @imgSrc" style="width:5em; height:3.3em;" /> </td>*@
+
+
+@if (Model.Desativado == true)
+{
+    <td class="alert-danger" align="center">@Html.DisplayFor(modelItem => Model.Desativado)</td>
+}
+else
+{
+    <td align="center">@Html.DisplayFor(modelItem => Model.Desativado)</td>
+
+}
+
+@*<td style="width:16em">
+        @if (Model.Sumario.Length > 151) // Nota: Na BD Sumario:VARCHAR(size) tem > que Remove(size)
+        {
+            @Model.Sumario.Remove(150); <span>...</span>
+        }
+        else
+        {
+            @Model.Sumario;
+        }
+    </td>
+
+    <td style="width:16em">
+        @if (Model.Detalhes.Length > 151)
+        {
+            @Model.Detalhes.Remove(150); <span>...</span>
+        }
+        else
+        {
+            @Model.Detalhes;
+        }
+    </td>*@
+

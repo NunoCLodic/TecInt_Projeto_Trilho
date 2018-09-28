@@ -1,0 +1,58 @@
+﻿@model Trails4Health.Models.RespostaAvaliacao
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_LayoutEstatisticas";
+}
+
+<div class="panel panel-primary" style="margin-top:2ex;">
+    <div class="panel-heading">
+        <h3 class="panel-title">Actualizar Resposta Avaliação</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="RespostaID" />
+                    <div class="form-group">
+                        <label asp-for="Data" class="control-label"></label>
+                        <input asp-for="Data" class="form-control" />
+                        <span asp-validation-for="Data" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="QuestaoID" class="control-label">Questão</label>
+                        <select asp-for="QuestaoID" class="form-control" asp-items="ViewBag.QuestaoID"></select>
+                        <span asp-validation-for="QuestaoID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TuristaID" class="control-label"></label>
+                        <select asp-for="TuristaID" class="form-control" asp-items="ViewBag.TuristaID"></select>
+                        <span asp-validation-for="TuristaID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GuiaID" class="control-label"></label>
+                        <select asp-for="GuiaID" class="form-control" asp-items="ViewBag.GuiaID"></select>
+                        <span asp-validation-for="GuiaID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="OpcaoID" class="control-label">Nota de avaliação</label>
+                        <select asp-for="OpcaoID" class="form-control" asp-items="ViewBag.OpcaoID"></select>
+                        <span asp-validation-for="OpcaoID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Actualizar Resposta" class="btn btn-default" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index" class="btn btn-warning">Candelar</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

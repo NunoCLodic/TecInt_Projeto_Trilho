@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Avaliar Trilho";
+}
+@{
+    Layout = "_LayoutBackOffice";
+}
+
+<!-- asp-action="Insert":referencía a acção Insert  -->
+<form asp-action="Criar" method="post">
+    <div class="panel panel-primary" style="margin-top:2ex;">
+        <div class="panel-heading">
+            <h3 class="panel-title">Avaliar Trilho </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="form-group">
+                <!-- asp-for: atributo tag helper: liga os elementos HTML ao objecto Model:  EX: Models.Trilhos.Nome -->
+                <!-- para fazer input tenho usar as classes: "class="form-group" + class="form-control" -->
+                <br />
+                <p>Classifique globalmente este trilho (1 Mau - 5 Excelente):</p>
+                
+                <fieldset id="group1">
+                    <input type="radio" value="" name="group1">&nbsp1&nbsp&nbsp
+                    <input type="radio" value="" name="group1">&nbsp2&nbsp&nbsp
+                    <input type="radio" value="" name="group1">&nbsp3&nbsp&nbsp
+                    <input type="radio" value="" name="group1">&nbsp4&nbsp&nbsp
+                    <input type="radio" value="" name="group1">&nbsp5&nbsp
+                </fieldset>
+            
+            </div>
+
+            <div class="form-group">
+                <br />
+                <p>O trilho continha sinalização adequada?</p>
+
+                <fieldset id="group2">
+                    <input type="radio" value="" name="group2">&nbspSim&nbsp&nbsp
+                    <input type="radio" value="" name="group2">&nbspNão
+                </fieldset>
+            </div>
+
+            <div class="form-group">
+                <br />
+                <p>Como classifica este trilho quanto ao grau de dificuldade (1 Muito Fácil - 5 Muito Difícil)?</p>
+
+                <fieldset id="group3">
+                    <input type="radio" value="" name="group3">&nbsp1&nbsp&nbsp
+                    <input type="radio" value="" name="group3">&nbsp2&nbsp&nbsp
+                    <input type="radio" value="" name="group3">&nbsp3&nbsp&nbsp
+                    <input type="radio" value="" name="group3">&nbsp4&nbsp&nbsp
+                    <input type="radio" value="" name="group3">&nbsp5&nbsp
+                </fieldset>
+            </div>
+            
+            @*<div class="form-group">
+                    <label asp-for="Desativado">Estado Trilho:</label>
+                    <select asp-for="Desativado" class="form-control">
+                        <option value="">Escolha opção</option>
+                        <option value="true">Desativado</option>
+                        <option value="false">Ativado</option>
+                    </select>
+                </div>*@
+
+            <!-- to display validation errors to the user -->
+            <div asp-validation-summary="All"></div>
+        </div>
+
+        <div class="panel-footer">
+            <!-- botão submete para esta acção (form) -->
+            <button type="submit" class="btn btn-primary">Submeter Avaliação</button>
+        </div>
+    </div>
+</form>

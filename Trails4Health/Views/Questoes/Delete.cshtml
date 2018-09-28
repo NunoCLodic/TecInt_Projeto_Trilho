@@ -1,0 +1,42 @@
+﻿@model Trails4Health.Models.Questao
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "_LayoutBackoffice";
+}
+
+@*<h2>Delete</h2>*@
+
+<div class="panel panel-primary" style="margin-top:2ex;">
+    <div class="panel-heading">
+        <h3 class="panel-title">Tem a certeza que pretende apagar esta questão?</h3>
+    </div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>
+                Questão
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NomeQuestao)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Desactivada)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Desactivada)
+            </dd>
+            <dt>
+                Descrição
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Descricao)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="QuestaoID" />
+            <input type="submit" value="Apagar" class="btn btn-default" />
+            <a asp-action="Index" class="btn btn-warning">Cancelar</a>
+        </form>
+    </div>
+</div>

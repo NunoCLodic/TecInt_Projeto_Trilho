@@ -1,0 +1,105 @@
+﻿<!-- No site bootswatch.com:
+        .escolher tema: Ex. flaty
+        .rck > guardarlink > copiar para desktop > arrastar para \css
+        .Nota: os 2 ficheiros ficam um dentro outro.
+    Regras:
+        .testar 1º com o que há
+        .mudar nome dos ficheiros CSS/JS que já existem na pasta lib
+        .retirar fallback se estiver a trabalhar apenas com a minha maquina
+        .se houver, usar os ficheiros min em "Staging,Production" senão, usar o que há
+-->
+<!--  -->
+
+
+@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Trails4Health</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- CSS -->
+    <!-- Ambiente em desenvolvimento -->
+    <environment names="Development">
+        <!-- Original -->
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
+        <link rel="stylesheet" href="~/css/site.css" />
+
+        <!-- Referenciar novo CSS -->
+        <link rel="stylesheet" href="~/css/template_bootstrap-grid.css" />
+        <link rel="stylesheet" href="~/css/template_bootstrap-reboot.css" />
+        <link rel="stylesheet" href="~/css/template_bootstrap.css" />
+        <link rel="stylesheet" href="~/css/template_business_casual.css" />
+
+    <!-- Ambiente para released -->
+    </environment>
+    <environment names="Staging,Production">
+        <!-- Original -->
+        @*<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />*@
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+
+        <!-- Referenciar novo CSS min(é apenas uma versão mais leve - melhor desempenho) -->
+        <link rel="stylesheet" href="~/css/template_bootstrap-grid.min.css" />
+        <link rel="stylesheet" href="~/css/template_bootstrap-reboot.min.css" />
+        <link rel="stylesheet" href="~/css/template_bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/template_business_casual.css" />
+
+    </environment>
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="bg-faded text-center py-5">
+            <div class="container">
+                <p class="m-0">Copyright &copy; Trails4Health 2017</p>
+            </div>
+        </footer>
+       
+    </div>
+    <!-- JAVA SCRIPT -->
+    <environment names="Development">
+        <!-- Original -->
+        <!-- Nota: isto é JQUERY sem esta linha botoes slider nao funcionam!! -->
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        @*<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>*@
+        @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+
+        <!-- referenciar novo JS -->
+        <script src="~/js/template_bootstrap.js"></script>
+        <script src="~/js/template_bootstrap.bundle.js"></script>
+
+    </environment>
+    <environment names="Staging,Production">
+        <!-- Original -->
+        @*<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>*@
+        @*<script src="~/js/site.min.js" asp-append-version="true"></script>*@
+
+        <!-- referenciar novo JS -->
+        <script src="~/js/template_bootstrap.min.js"></script>
+        <script src="~/js/template_bootstrap.bundle.min.js"></script>
+
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿@model Trilho
+
+
+<div class="bg-faded p-4 my-4">
+    <div class="card card-inverse">
+        @if (Model.Foto != null)
+        {
+            var base64 = Convert.ToBase64String(Model.Foto);
+            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            <img class="card-img img-fluid w-100" src="@imgSrc" style="width:60em; height:30em;" alt="">
+        }
+        else
+        {
+            <img class="card-img img-fluid w-100" src="~/images/imageNA.png" style="width:60em; height:30em;" alt="">
+        }
+
+    @*@{
+        var base64 = Convert.ToBase64String(Model.ImagemTrilho);
+        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+    }*@
+    @*<img class="card-img img-fluid w-100" src="@imgSrc" style="width:60em; height:30em;" alt="">*@
+
+        <div class="card-img-overlay bg-overlay">
+            <h2 class="card-title text-shadow text-white text-uppercase mb-0">@Model.Nome</h2>
+            <hr />
+            <p class="text-shadow text-white" style="font-size:larger"><b style="margin-right:1em">Trilho:</b>@Model.Distancia km</p>
+            <p class="text-shadow text-white" style="font-size:larger"><b b style="margin-right:1em">Inicio do Trilho:</b>@Model.Inicio</p>
+            <p class="text-shadow text-white" style="font-size:larger"><b b style="margin-right:1em">Fim do Trilho:</b>@Model.Fim</p>
+            <hr />
+            <p class="lead card-text text-shadow text-white w-50 d-none d-lg-block" style="margin-bottom:3em">@Model.Sumario</p>
+            <div>
+                <a asp-controller="Trilhos" asp-action="Detalhes" asp-route-id="@Model.TrilhoID" class="btn btn-secondary">Saber mais</a>
+            </div>
+        </div>
+    </div>
+</div>

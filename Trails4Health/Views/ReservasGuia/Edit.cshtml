@@ -1,0 +1,49 @@
+﻿@model Trails4Health.Models.ReservaGuia
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_LayoutEstatisticas";
+}
+
+<div class="panel panel-primary" style="margin-top:2ex;">
+    <div class="panel-heading">
+        <h3 class="panel-title">Actualizar Reserva</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="ReservaID" />
+                    <div class="form-group">
+                        <label asp-for="ReservaParaDia" class="control-label">Reserva para Dia</label>
+                        <input asp-for="ReservaParaDia" class="form-control" />
+                        <span asp-validation-for="ReservaParaDia" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GuiaID" class="control-label">Guia</label>
+                        <select asp-for="GuiaID" class="form-control" asp-items="ViewBag.GuiaID"></select>
+                        <span asp-validation-for="GuiaID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TuristaID" class="control-label">Turista</label>
+                        <select asp-for="TuristaID" class="form-control" asp-items="ViewBag.TuristaID"></select>
+                        <span asp-validation-for="TuristaID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TrilhoID" class="control-label">Trilho</label>
+                        <select asp-for="TrilhoID" class="form-control" asp-items="ViewBag.TrilhoID"></select>
+                        <span asp-validation-for="TrilhoID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Actualizar" class="btn btn-default" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index" class="btn btn-warning">Cancelar</a>
+        </div>
+    </div>
+</div>

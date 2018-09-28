@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Access denied";
+}
+
+<div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block">Trails4Health</div>
+<div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Rua Comercio | 6300 Guarda</div>
+<!-- Nav Bar - Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item px-lg-4">
+                    <a asp-controller="Home" asp-action="Index" class="nav-link text-uppercase text-expanded">
+                        Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header>
+    @*<h2 class="text-danger">ViewData["Title"]</h2>*@
+    <div class="container">
+        <div class="bg-faded p-4 my-4">
+            <p class="text-danger">Não tem permissões para aceder a este recurso.</p>
+        </div>
+    </div>
+</header>
